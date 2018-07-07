@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Observer", "Observer\Observer.vcxproj", "{A910CF64-0452-497F-AC3D-8EB35A82D0BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8C8DF62F-ADF2-48EF-A6D0-9D4C9B2598CD}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+		REPORT.md = REPORT.md
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WeatherViewer", "WeatherViewer\WeatherViewer.vcxproj", "{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16} = {5373B4C4-4066-47FF-BCB2-BE423D731E16}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WeatherStation", "WeatherStation\WeatherStation.vcxproj", "{5373B4C4-4066-47FF-BCB2-BE423D731E16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A910CF64-0452-497F-AC3D-8EB35A82D0BE}.Debug|x64.ActiveCfg = Debug|x64
+		{A910CF64-0452-497F-AC3D-8EB35A82D0BE}.Debug|x64.Build.0 = Debug|x64
+		{A910CF64-0452-497F-AC3D-8EB35A82D0BE}.Debug|x86.ActiveCfg = Debug|Win32
+		{A910CF64-0452-497F-AC3D-8EB35A82D0BE}.Debug|x86.Build.0 = Debug|Win32
+		{A910CF64-0452-497F-AC3D-8EB35A82D0BE}.Release|x64.ActiveCfg = Release|x64
+		{A910CF64-0452-497F-AC3D-8EB35A82D0BE}.Release|x64.Build.0 = Release|x64
+		{A910CF64-0452-497F-AC3D-8EB35A82D0BE}.Release|x86.ActiveCfg = Release|Win32
+		{A910CF64-0452-497F-AC3D-8EB35A82D0BE}.Release|x86.Build.0 = Release|Win32
+		{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}.Debug|x64.ActiveCfg = Debug|x64
+		{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}.Debug|x64.Build.0 = Debug|x64
+		{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}.Debug|x86.ActiveCfg = Debug|Win32
+		{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}.Debug|x86.Build.0 = Debug|Win32
+		{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}.Release|x64.ActiveCfg = Release|x64
+		{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}.Release|x64.Build.0 = Release|x64
+		{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}.Release|x86.ActiveCfg = Release|Win32
+		{5B44DBF9-E113-41B0-A8BF-833BC950A4CC}.Release|x86.Build.0 = Release|Win32
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16}.Debug|x64.ActiveCfg = Debug|x64
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16}.Debug|x64.Build.0 = Debug|x64
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16}.Debug|x86.ActiveCfg = Debug|Win32
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16}.Debug|x86.Build.0 = Debug|Win32
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16}.Release|x64.ActiveCfg = Release|x64
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16}.Release|x64.Build.0 = Release|x64
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16}.Release|x86.ActiveCfg = Release|Win32
+		{5373B4C4-4066-47FF-BCB2-BE423D731E16}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2043CF5B-EF16-4F75-948F-BB5E23260E4A}
+	EndGlobalSection
+EndGlobal

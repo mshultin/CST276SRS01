@@ -11,7 +11,7 @@ Project Name(s):
 
 Purposes:  
 
-    - Learn to implement the cannonical GoF Observer Design Pattern.  
+    x- Learn to implement the cannonical GoF Observer Design Pattern.  
     - Learn to create a .dll  
     - Learn to apply the Observer pattern to existing code.  
     - Learn to provide an API and documentation to another programmer.  
@@ -20,12 +20,12 @@ Purposes:
 
 Specification:  
 
-    - Create an empty Visual Studio solution named CST276SRS01.  
-    - Delete the CST276SRS01 project from your solution and repository.  
+    x- Create an empty Visual Studio solution named CST276SRS01.  
+    x- Delete the CST276SRS01 project from your solution and repository.  
 
-    - Create a console project named Observer.  
-    - Implement the Observer pattern from the GoF as shown in the UML Class Diagram (p294)  
-    - Don't forget: Pattern citation is required for all projects, including this one.  
+    x- Create a console project named Observer.  
+    x- Implement the Observer pattern from the GoF as shown in the UML Class Diagram (p294)  
+    x- Don't forget: Pattern citation is required for all projects, including this one.  
 
     - Create a .dll project named WeatherStation.  
     - Implement the WeatherStation namespace code in the WeatherStation.dll project.  
