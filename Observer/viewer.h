@@ -4,19 +4,20 @@
 
 class ConcreteSubject;
 
-class Observer {
+//Observer interface
+class Viewer {
 public:
 	virtual void Update() = 0;
 };
 
-class ConcreteObserver : public Observer {
+class ConcreteViewer : public Viewer {
 private:
 	bool observerState_ { false };
 	ConcreteSubject* subject_;
 
 public:
 	void Update();
+	void RemoveMe();
 
-	ConcreteObserver(ConcreteSubject*);
-	~ConcreteObserver();
+	ConcreteViewer(ConcreteSubject*);
 };

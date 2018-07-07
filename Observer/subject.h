@@ -1,16 +1,18 @@
 #pragma once
+
+class Viewer;
+
 class Subject {
 private:
 	//Vector reference wrapper example provided by Professor Besser
-	std::vector<std::reference_wrapper<Observer>> list_;
+	std::vector<std::reference_wrapper<Viewer>> list_;
 
 public:
-	void Attach(Observer&);
-	void Detach(Observer&);
+	void Attach(Viewer&);
+	void Detach(Viewer&);
 	void Notify();
 
-	Subject();
-	virtual ~Subject() = 0;
+	virtual ~Subject() {};
 };
 
 class ConcreteSubject : public Subject {

@@ -1,6 +1,7 @@
 #ifndef WEATHER_STATION_STATION_H
 #define WEATHER_STATION_STATION_H
 
+#include "stdafx.h"
 #include <vector>
 #include <chrono>
 #include "temperature.h"
@@ -9,11 +10,10 @@
 #include "record.h"
 //#include "statistics.h" // TODO: Delete #include.
 //#include "current.h" // TODO: Delete #include.
-#include "subject.h"
 
 namespace WeatherStation
 {
-    class Station : public ConcreteSubject // TODO: Make this a ConcreteSubject.
+    class Station : public Subject // TODO: Make this a ConcreteSubject.
     {
     private:
         std::vector<WeatherStation::Record> history_{};

@@ -8,11 +8,10 @@
 #include "station.h"
 //#include "statistics.h"
 //#include "current.h"
-#include "subject.h"
 
 namespace WeatherStation
 {
-    Station::Station() /*noexcept: weather_viewer_statistics_{ *this }, weather_viewer_current_{ *this }*/
+    Station::Station() noexcept /*: weather_viewer_statistics_{ *this }, weather_viewer_current_{ *this }*/
     {
     }
 

@@ -21,10 +21,10 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="observer.h">
+    <ClInclude Include="subject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="subject.h">
+    <ClInclude Include="viewer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,10 +35,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Observer.cpp">
+    <ClCompile Include="subject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="subject.cpp">
+    <ClCompile Include="viewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
