@@ -24,7 +24,11 @@ namespace WeatherViewer
         return os;
     }
 
-    Statistics::Statistics(WeatherStation::Station const &station): station_{ station }
+    Statistics::Statistics(WeatherStation::Station const &station): 
+		station_{ station },
+		humidityMean_{ station_.getMeanHumidity(begin_, std::chrono::system_clock::now()) },
+		presssureMean_{ station_.getMeanPressure(begin_, std::chrono::system_clock::now()) },
+		temperatureMean_{ station_.getMeanTemperature(begin_, std::chrono::system_clock::now()) }
     {
     }
 
@@ -37,4 +41,10 @@ namespace WeatherViewer
     {
         return begin_;
     }
+
+	void Statistics::Update() {
+		WeatherStation::Humidity humidity_{ station_.getMeanHumidity(begin_, std::chrono::system_clock::now()) };
+		WeatherStation::Pressure presssure_{ station_.getMeanPressure(begin_, std::chrono::system_clock::now()) };
+		WeatherStation::Temperature temperature_{ station_.getMeanTemperature(begin_, std::chrono::system_clock::now()) };
+	}
 }

@@ -27,9 +27,9 @@ Specification:
     x- Implement the Observer pattern from the GoF as shown in the UML Class Diagram (p294)  
     x- Don't forget: Pattern citation is required for all projects, including this one.  
 
-    - Create a .dll project named WeatherStation.  
-    - Implement the WeatherStation namespace code in the WeatherStation.dll project.  
-    - Find all the "TODO"s and follow the instructions given to get you started converting the code to use the Observer pattern.  
+    x- Create a .dll project named WeatherStation.  
+    x- Implement the WeatherStation namespace code in the WeatherStation.dll project.  
+    x- Find all the "TODO"s and follow the instructions given to get you started converting the code to use the Observer pattern.  
     - Create an API document for your .dll interface.  
 
     - Obtain the WeatherStation.dll and API document from your previous partner and give your WeatherStation.dll and API document to your next partner.  

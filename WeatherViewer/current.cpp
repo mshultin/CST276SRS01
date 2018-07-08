@@ -2,7 +2,6 @@
 #include <iomanip>
 //#include "station.h"
 #include "current.h"
-#include "viewer.h"
 
 namespace WeatherViewer
 {
@@ -22,7 +21,11 @@ namespace WeatherViewer
         return os;
     }
 
-    Current::Current(WeatherStation::Station const &station): station_{ station }
+    Current::Current(WeatherStation::Station const &station) : 
+		station_{ station }, 
+		humidity_{ station_.getHumidity() },
+		presssure_{ station_.getPressure() },
+		temperature_{ station_.getTemperature() }
     {
     }
 
@@ -30,4 +33,10 @@ namespace WeatherViewer
     {
         return station_;
     }
+
+	void Current::Update() {
+		WeatherStation::Humidity humidity_ { station_.getHumidity() };
+		WeatherStation::Pressure presssure_ { station_.getPressure() };
+		WeatherStation::Temperature temperature_ { station_.getTemperature() };
+	}
 }

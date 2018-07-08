@@ -17,6 +17,9 @@ namespace WeatherViewer
 
     private:
         WeatherStation::Station const& station_;
+		WeatherStation::Humidity humidityMean_;
+		WeatherStation::Pressure presssureMean_;
+		WeatherStation::Temperature temperatureMean_;
         std::chrono::system_clock::time_point const begin_{ std::chrono::system_clock::now() };
 
     public:
@@ -24,6 +27,7 @@ namespace WeatherViewer
 
         WeatherStation::Station const& getStation() const;
         std::chrono::system_clock::time_point getBegin() const;
+		void Update();
     };
 }
 
