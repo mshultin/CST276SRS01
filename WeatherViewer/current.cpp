@@ -1,17 +1,16 @@
-#include "stdafx.h"
 #include <iomanip>
-//#include "station.h"
+#include "station.h"
 #include "current.h"
 
 namespace WeatherViewer
 {
-    std::ostream& operator<<(std::ostream& os, WeatherViewer::Current const& current)
+    std::ostream& operator<<(std::ostream& os, WeatherViewer::Current& current)
     {
-        auto const& station{ current.getStation() };
+        auto station{ current.getStation() };
 
-        auto const temperature{ station.getTemperature() };
-        auto const humidity{ station.getHumidity() };
-        auto const pressure{ station.getPressure() };
+        auto temperature{ station.getTemperature() };
+        auto humidity{ station.getHumidity() };
+        auto pressure{ station.getPressure() };
 
         os <<
             std::setw(3) << temperature.get() << "°C, " <<
@@ -21,7 +20,7 @@ namespace WeatherViewer
         return os;
     }
 
-    Current::Current(WeatherStation::Station const &station) : 
+    Current::Current(WeatherStation::Station& station) : 
 		station_{ station }, 
 		humidity_{ station_.getHumidity() },
 		presssure_{ station_.getPressure() },
@@ -29,7 +28,7 @@ namespace WeatherViewer
     {
     }
 
-    WeatherStation::Station const& Current::getStation() const
+    WeatherStation::Station& Current::getStation()
     {
         return station_;
     }

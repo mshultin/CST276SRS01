@@ -1,9 +1,11 @@
 #ifndef WEATHER_STATION_TEMPERATURE_H
 #define WEATHER_STATION_TEMPERATURE_H
 
+#include "weather_station_exports.h"
+
 namespace WeatherStation
 {
-    class Temperature
+    class WEATHERSTATION_API Temperature
     {
     public:
         using value_type = int; // Celsius

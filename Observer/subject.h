@@ -1,18 +1,19 @@
 #pragma once
+
 #include <vector>
 #include <functional>
 #include <algorithm>
 
-class Viewer;
+class Observer;
 
 class Subject {
 private:
 	//Vector reference wrapper example provided by Professor Besser
-	std::vector<std::reference_wrapper<Viewer>> list_;
+	std::vector<std::reference_wrapper<Observer>> list_;
 
 public:
-	void Attach(Viewer&);
-	void Detach(Viewer&);
+	void Attach(Observer&);
+	void Detach(Observer&);
 	void Notify();
 
 	virtual ~Subject() {};

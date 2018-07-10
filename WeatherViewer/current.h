@@ -3,23 +3,24 @@
 
 #include <ostream>
 #include "station.h"
+#include "viewer.h"
 
 namespace WeatherViewer
 {
 	class Current : public Viewer {
 
-        friend std::ostream& operator<<(std::ostream& os, Current const& current);
+        friend std::ostream& operator<<(std::ostream& os, Current& current);
 
     private:
-        WeatherStation::Station const& station_;
+        WeatherStation::Station& station_;
 		WeatherStation::Humidity humidity_;
 		WeatherStation::Pressure presssure_;
 		WeatherStation::Temperature temperature_;
 
     public:
-        explicit Current(WeatherStation::Station const& station);
+        explicit Current(WeatherStation::Station& station);
 
-        WeatherStation::Station const& getStation() const;
+        WeatherStation::Station& getStation();
 		void Update();
     };
 }

@@ -1,7 +1,6 @@
-#include "stdafx.h"
 #include <cassert>
 #include <limits>
-#include "../packages/Microsoft.Gsl.0.1.2.1/build/native/include/gsl.h"
+#include "gsl.h"
 #include "temperature.h"
 #include "humidity.h"
 #include "pressure.h"
@@ -17,13 +16,14 @@ namespace WeatherStation
 
     void Station::measure()
     {
-        Temperature const temperature{ getTemperature() };
-        Humidity const humidity{ getHumidity() };
-        Pressure const pressure{ getPressure() };
+        Temperature temperature{ getTemperature() };
+        Humidity humidity{ getHumidity() };
+        Pressure pressure{ getPressure() };
 
         WeatherStation::Record record{ temperature, humidity, pressure };
 
         history_.emplace_back(record);
+		Notify();
     }
 
     /*WeatherViewer::Statistics Station::getWeatherViewerStatistics() const
@@ -36,19 +36,19 @@ namespace WeatherStation
         return weather_viewer_current_;
     }*/
 
-    Temperature Station::getTemperature() const
+    Temperature Station::getTemperature()
     {
         auto const result{ Temperature(Temperature::default_value) }; // TODO: Create a mock temperature reading.
         return result;
     }
 
-    Humidity Station::getHumidity() const
+    Humidity Station::getHumidity()
     {
         auto const result{ Humidity(Humidity::default_value) }; // TODO: Create a mock humidity reading.
         return result;
     }
 
-    Pressure Station::getPressure() const {
+    Pressure Station::getPressure() {
         auto const result{ Pressure(Pressure::default_value) }; // TODO: Create a mock pressure reading.
         return result;
     }
@@ -57,7 +57,7 @@ namespace WeatherStation
     (
         std::chrono::system_clock::time_point const t0,
         std::chrono::system_clock::time_point const t1
-    ) const
+    )
     {
         auto sum{ 0LL };
         auto total_duration{ std::chrono::system_clock::duration::zero() };
@@ -65,10 +65,10 @@ namespace WeatherStation
         auto period_start{ t0 };
         for (auto const& weather_record: history_)
         {
-            auto const record_timepoint{ weather_record.getTimepoint() };
+            auto const record_timepoint{ weather_record.get().getTimepoint() };
             if (record_timepoint >= period_start && record_timepoint < t1)
             {
-                auto const value{ weather_record.getTemperature() };
+                auto const value{ weather_record.get().getTemperature() };
 
                 if (value.is_good())
                 {
@@ -108,7 +108,7 @@ namespace WeatherStation
     (
         std::chrono::system_clock::time_point const t0,
         std::chrono::system_clock::time_point const t1
-    ) const
+    )
     {
         auto sum{ 0LL };
         auto total_duration{ std::chrono::system_clock::duration::zero() };
@@ -116,10 +116,10 @@ namespace WeatherStation
         auto period_start{ t0 };
         for (auto const& weather_record: history_)
         {
-            auto const record_timepoint{ weather_record.getTimepoint() };
+            auto const record_timepoint{ weather_record.get().getTimepoint() };
             if (record_timepoint >= period_start && record_timepoint < t1)
             {
-                auto const value{ weather_record.getHumidity() };
+                auto const value{ weather_record.get().getHumidity() };
 
                 if (value.is_good())
                 {
@@ -159,7 +159,7 @@ namespace WeatherStation
     (
         std::chrono::system_clock::time_point const t0,
         std::chrono::system_clock::time_point const t1
-    ) const
+    )
     {
         auto sum{ 0.0 };
         auto total_duration{ std::chrono::system_clock::duration::zero() };
@@ -167,10 +167,10 @@ namespace WeatherStation
         auto period_start{ t0 };
         for (auto const& weather_record: history_)
         {
-            auto const record_timepoint{ weather_record.getTimepoint() };
+            auto const record_timepoint{ weather_record.get().getTimepoint() };
             if (record_timepoint >= period_start && record_timepoint < t1)
             {
-                auto const value{ weather_record.getPressure() };
+                auto const value{ weather_record.get().getPressure() };
 
                 if (value.is_good())
                 {

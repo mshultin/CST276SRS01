@@ -1,25 +1,25 @@
 #include "stdafx.h"
-#include "viewer.h"
+#include "observer.h"
 #include "subject.h"
 
 /******************************
-Attach a Viewer to a Subject
-Params: Viewer&
+Attach a Observer to a Subject
+Params: Observer&
 Return:
 ******************************/
-void Subject::Attach(Viewer& aObject) {
+void Subject::Attach(Observer& aObject) {
 	list_.emplace_back(aObject);
 }
 
 /******************************
-Detach a Viewer from a Subject
+Detach a Observer from a Subject
 Params:
 Return:
 ******************************/
 //Vector reference wrapper erase code provided by Professor Besser
-void Subject::Detach(Viewer& aObject) {
+void Subject::Detach(Observer& aObject) {
 	list_.erase(
-		std::remove_if(list_.begin(), list_.end(), [&aObject](Viewer const& value) {
+		std::remove_if(list_.begin(), list_.end(), [&aObject](Observer const& value) {
 		auto const result{ &value == &aObject };
 		return result;
 	}
@@ -28,12 +28,12 @@ void Subject::Detach(Viewer& aObject) {
 }
 
 /******************************
-Notify the attached Viewers of Subject change
+Notify the attached Observers of Subject change
 Params:
 Return:
 ******************************/
 void Subject::Notify() {
-	for (Viewer& o : list_) {
+	for (Observer& o : list_) {
 		o.Update();
 	}
 }

@@ -1,20 +1,19 @@
-#include "stdafx.h"
 #include <iomanip>
 #include "station.h"
 #include "statistics.h"
 
 namespace WeatherViewer
 {
-    std::ostream& operator<<(std::ostream& os, WeatherViewer::Statistics const& statistics)
+    std::ostream& operator<<(std::ostream& os, WeatherViewer::Statistics& statistics)
     {
-        auto const& station{ statistics.getStation() };
+        auto& station{ statistics.getStation() };
 
-        auto const& begin{ statistics.getBegin() };
-        auto const& now{ std::chrono::system_clock::now() };
+        auto begin{ statistics.getBegin() };
+        auto now{std::chrono::system_clock::now() };
 
-        auto const meanTemperature{ station.getMeanTemperature(begin, now) };
-        auto const meanHumidity{ station.getMeanHumidity(begin, now) };
-        auto const meanPressure{ station.getMeanPressure(begin, now) };
+        auto meanTemperature{ station.getMeanTemperature(begin, now) };
+        auto meanHumidity{ station.getMeanHumidity(begin, now) };
+        auto meanPressure{ station.getMeanPressure(begin, now) };
 
         os <<
             std::setw(3) << meanTemperature.get() << "°C, " <<
@@ -24,7 +23,7 @@ namespace WeatherViewer
         return os;
     }
 
-    Statistics::Statistics(WeatherStation::Station const &station): 
+    Statistics::Statistics(WeatherStation::Station& station): 
 		station_{ station },
 		humidityMean_{ station_.getMeanHumidity(begin_, std::chrono::system_clock::now()) },
 		presssureMean_{ station_.getMeanPressure(begin_, std::chrono::system_clock::now()) },
@@ -32,12 +31,12 @@ namespace WeatherViewer
     {
     }
 
-    WeatherStation::Station const& Statistics::getStation() const
+    WeatherStation::Station& Statistics::getStation()
     {
         return station_;
     }
 
-    std::chrono::system_clock::time_point Statistics::getBegin() const
+    std::chrono::system_clock::time_point Statistics::getBegin()
     {
         return begin_;
     }
