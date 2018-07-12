@@ -4,38 +4,43 @@
 
 namespace WeatherViewer
 {
-    std::ostream& operator<<(std::ostream& os, WeatherViewer::Current& current)
-    {
-        auto station{ current.getStation() };
+	std::ostream& operator<<(std::ostream& os, WeatherViewer::Current& current)
+	{
+		//auto station{ current.getStation() };
 
-        auto temperature{ station.getTemperature() };
-        auto humidity{ station.getHumidity() };
-        auto pressure{ station.getPressure() };
+		auto temperature{ current.temperature_ };
+		auto humidity{ current.humidity_ };
+		auto pressure{ current.pressure_ };
 
-        os <<
-            std::setw(3) << temperature.get() << "°C, " <<
-            std::setw(3) << humidity.get()    << "%, "  <<
-            std::setw(4) << pressure.get()    << " in. Hg";
+		os <<
+			std::setw(3) << temperature.get() << "\370C, " <<
+			std::setw(3) << humidity.get() << "%, " <<
+			std::setw(4) << pressure.get() << " in. Hg";
 
-        return os;
-    }
+		return os;
+	}
 
-    Current::Current(WeatherStation::Station& station) : 
-		station_{ station }, 
-		humidity_{ station_.getHumidity() },
-		presssure_{ station_.getPressure() },
-		temperature_{ station_.getTemperature() }
-    {
-    }
+	Current::Current(WeatherStation::Station* station) :
+		station_{ station },
+		temperature_{ 0 },
+		humidity_{ 0 },
+		pressure_{ 0 }
+	{
+		station_->Attach(*(this));
+	}
+
+	Current::~Current() {
+		station_->Detach(*(this));
+	}
 
     WeatherStation::Station& Current::getStation()
     {
-        return station_;
+        return *(station_);
     }
 
 	void Current::Update() {
-		WeatherStation::Humidity humidity_ { station_.getHumidity() };
-		WeatherStation::Pressure presssure_ { station_.getPressure() };
-		WeatherStation::Temperature temperature_ { station_.getTemperature() };
+		this->temperature_.set(station_->getTemperature().get());
+		this->humidity_.set(station_->getHumidity().get());
+		this->pressure_.set(station_->getPressure().get());
 	}
 }

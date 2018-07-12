@@ -12,13 +12,14 @@ namespace WeatherViewer
         friend std::ostream& operator<<(std::ostream& os, Current& current);
 
     private:
-        WeatherStation::Station& station_;
+        WeatherStation::Station* station_;
 		WeatherStation::Humidity humidity_;
-		WeatherStation::Pressure presssure_;
+		WeatherStation::Pressure pressure_;
 		WeatherStation::Temperature temperature_;
 
     public:
-        explicit Current(WeatherStation::Station& station);
+        explicit Current(WeatherStation::Station* station);
+		~Current();
 
         WeatherStation::Station& getStation();
 		void Update();

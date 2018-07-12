@@ -1,3 +1,5 @@
+
+
 #ifndef WEATHER_STATION_RECORD_H
 #define WEATHER_STATION_RECORD_H
 
@@ -12,12 +14,12 @@ namespace WeatherStation
     {
     private:
         std::chrono::system_clock::time_point const timepoint_{ std::chrono::system_clock::now() };
-        Temperature const temperature_;
-        Humidity const humidity_;
-        Pressure const pressure_;
+        Temperature temperature_;
+        Humidity humidity_;
+        Pressure pressure_;
 
     public:
-        Record(Temperature const temperature, Humidity const humidity, Pressure const pressure);
+        Record(Temperature temperature, Humidity humidity, Pressure pressure);
 
         std::chrono::system_clock::time_point getTimepoint() const;
         Temperature getTemperature() const;

@@ -1,3 +1,5 @@
+
+
 #include <chrono>
 #include "record.h"
 #include <chrono>
@@ -9,9 +11,9 @@ namespace WeatherStation
 {
     Record::Record
     (
-        Temperature const temperature,
-        Humidity const humidity,
-        Pressure const pressure
+        Temperature temperature,
+        Humidity humidity,
+        Pressure pressure
     ):
         temperature_{ temperature },
         humidity_{ humidity },

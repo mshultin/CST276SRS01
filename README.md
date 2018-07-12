@@ -12,10 +12,10 @@ Project Name(s):
 Purposes:  
 
     x- Learn to implement the cannonical GoF Observer Design Pattern.  
-    - Learn to create a .dll  
-    - Learn to apply the Observer pattern to existing code.  
-    - Learn to provide an API and documentation to another programmer.  
-    - Learn to provide citation for patterns.  
+    x- Learn to create a .dll  
+    x- Learn to apply the Observer pattern to existing code.  
+    x- Learn to provide an API and documentation to another programmer.  
+    x- Learn to provide citation for patterns.  
 
 
 Specification:  
@@ -30,15 +30,15 @@ Specification:
     x- Create a .dll project named WeatherStation.  
     x- Implement the WeatherStation namespace code in the WeatherStation.dll project.  
     x- Find all the "TODO"s and follow the instructions given to get you started converting the code to use the Observer pattern.  
-    - Create an API document for your .dll interface.  
+    x- Create an API document for your .dll interface.  
 
     - Obtain the WeatherStation.dll and API document from your previous partner and give your WeatherStation.dll and API document to your next partner.  
 
-    - Create a console project named WeatherViewer.  
-    - Implement the WeatherViewer namespace code in the WeatherViewer project.  
+    x- Create a console project named WeatherViewer.  
+    x- Implement the WeatherViewer namespace code in the WeatherViewer project.  
     - Test your WeatherViewer with the WeatherStation.dll and API documentation provided from your previous partner.  
 
-    - See the main.cpp example for a starting place to create your WeatherViewer.  
+    x- See the main.cpp example for a starting place to create your WeatherViewer.  
     - Unlike the main.cpp, your WeatherViewer should only report changes to the weather.  
 
     - As always, write a report for your project in the REPORT.md file.  

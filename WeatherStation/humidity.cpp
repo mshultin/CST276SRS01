@@ -3,7 +3,7 @@
 
 namespace WeatherStation
 {
-    Humidity::Humidity(value_type const value) :
+    Humidity::Humidity(value_type value) :
         value_{ value }
     {
     }
@@ -12,6 +12,10 @@ namespace WeatherStation
     {
         return value_;
     }
+
+	void Humidity::set(value_type aValue) {
+		value_ = aValue;
+	}
 
     bool Humidity::is_good() const
     {

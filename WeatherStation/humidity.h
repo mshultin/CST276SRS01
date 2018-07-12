@@ -1,3 +1,6 @@
+//Added a set() member
+
+
 #ifndef WEATHER_STATION_HUMIDITY_H
 #define WEATHER_STATION_HUMIDITY_H
 
@@ -13,13 +16,13 @@ namespace WeatherStation
         static auto constexpr default_value{ -1 };
 
     private:
-        value_type const value_{ default_value };
+        value_type value_{ default_value };
 
     public:
-        explicit Humidity(value_type const value);
+        explicit Humidity(Humidity::value_type const value);
 
         value_type get() const;
-
+		void set(value_type);
         bool is_good() const;
     };
 }

@@ -13,6 +13,10 @@ namespace WeatherStation
         return value_;
     }
 
+	void Pressure::set(value_type aValue) {
+		value_ = aValue;
+	}
+
     bool Pressure::is_good() const
     {
         auto const result{ value_ >= 0.0 && value_< std::numeric_limits<value_type>::max() };

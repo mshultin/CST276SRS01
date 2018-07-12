@@ -1,6 +1,6 @@
 #pragma once
 //Virtual and concrete implementations
-//of the GoF Observer Observer objects
+//of the GoF Observer Pattern viewer objects
 
 class ConcreteSubject;
 
@@ -20,4 +20,5 @@ public:
 	void RemoveMe();
 
 	ConcreteObserver(ConcreteSubject*);
+	~ConcreteObserver();
 };

@@ -1,3 +1,4 @@
+#include <vector>
 #include "subject.h"
 
 namespace WeatherStation {
@@ -7,7 +8,7 @@ namespace WeatherStation {
 	Return:
 	******************************/
 	void Subject::Attach(Viewer& aObject) {
-		list_.emplace_back(aObject);
+		list_->emplace_back(aObject);
 	}
 
 	/******************************
@@ -17,12 +18,12 @@ namespace WeatherStation {
 	******************************/
 	//Vector reference wrapper erase code provided by Professor Besser
 	void Subject::Detach(Viewer& aObject) {
-		list_.erase(
-			std::remove_if(list_.begin(), list_.end(), [&aObject](Viewer const& value) {
+		list_->erase(
+			std::remove_if(list_->begin(), list_->end(), [&aObject](Viewer const& value) {
 			auto const result{ &value == &aObject };
 			return result;
 		}
-			), list_.end()
+			), list_->end()
 			);
 	}
 
@@ -32,20 +33,17 @@ namespace WeatherStation {
 	Return:
 	******************************/
 	void Subject::Notify() {
-		for (Viewer& o : list_) {
+		for (Viewer& o : *list_) {
 			o.Update();
 		}
 	}
 
-}
+	Subject::Subject()
+	{
+		list_ = new std::vector<std::reference_wrapper<Viewer>>();
+	}
 
-//
-//bool ConcreteSubject::GetState() {
-//	return subjectState_;
-//}
-//
-//void ConcreteSubject::SetState(bool aState) {
-//	subjectState_ = aState;
-//	this->Notify();
-//	
-//}
+	Subject::~Subject() {
+		delete list_;
+	}
+}

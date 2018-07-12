@@ -1,3 +1,5 @@
+//Added a set() member
+
 #ifndef WEATHER_STATION_TEMPERATURE_H
 #define WEATHER_STATION_TEMPERATURE_H
 
@@ -23,7 +25,7 @@ namespace WeatherStation
         explicit Temperature(value_type const value);
 
         value_type get() const;
-
+		void set(value_type);
         bool is_good() const;
     };
 }

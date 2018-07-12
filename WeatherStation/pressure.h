@@ -1,3 +1,5 @@
+//Added a set() member
+
 #ifndef WEATHER_STATION_PRESSURE_H
 #define WEATHER_STATION_PRESSURE_H
 
@@ -20,7 +22,7 @@ namespace WeatherStation
         explicit Pressure(value_type const value);
 
         value_type get() const;
-
+		void set(value_type);
         bool is_good() const;
     };
 }

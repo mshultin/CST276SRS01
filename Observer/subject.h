@@ -1,4 +1,6 @@
 #pragma once
+//Virtual and concrete implementations
+//of the GoF Observer Pattern subject objects
 
 #include <vector>
 #include <functional>
