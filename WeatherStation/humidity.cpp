@@ -22,4 +22,11 @@ namespace WeatherStation
         auto const result{ value_ >= 0 && value_<= 100 };
         return result;
     }
+
+	//bool Humidity::is_equal(Humidity aHumidity) const {
+	//	if (this->get() == aHumidity.get())
+	//		return true;
+	//	else
+	//		return false;
+	//}
 }

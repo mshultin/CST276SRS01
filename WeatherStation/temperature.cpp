@@ -22,4 +22,11 @@ namespace WeatherStation
         auto const result{ value_ >= absolute_zero && value_< std::numeric_limits<value_type>::max() };
         return result;
     }
+
+	//bool Temperature::is_equal(Temperature aTemperature) const {
+	//	if (this->get() == aTemperature.get())
+	//		return true;
+	//	else
+	//		return false;
+	//}
 }

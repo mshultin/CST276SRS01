@@ -1,7 +1,7 @@
 #ifndef WEATHER_VIEWER_CURRENT_H
 #define WEATHER_VIEWER_CURRENT_H
 
-#include <ostream>
+#include <iostream>
 #include "station.h"
 #include "viewer.h"
 

@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <iostream>
 #include <random>
 #include <chrono>
@@ -14,22 +13,23 @@ int main()
 	WeatherViewer::Current current_weather(weather_station);
 	WeatherViewer::Statistics statistics_weather(weather_station);
 	
-		std::random_device rd;
-		std::mt19937 mt{ rd() };
-		std::uniform_int_distribution<int> const dist{ 0, 10000 };
-		auto const sporadic{ dist(mt) };
+	/*Random duration generator provided by Professor Besser*/
+	std::random_device rd;
+	std::mt19937 mt{ rd() };
+	std::uniform_int_distribution<int> const dist{ 0, 10000 };
+	auto const sporadic{ dist(mt) };
 	
 	weather_station->measure(60, 75, 25.5);
-	std::cout << current_weather << std::endl;
-		std::this_thread::sleep_for(std::chrono::milliseconds(sporadic));
+	std::this_thread::sleep_for(std::chrono::milliseconds(sporadic));
+	weather_station->measure(60, 75, 25.5);
+	std::this_thread::sleep_for(std::chrono::milliseconds(sporadic));
 	weather_station->measure(70, 85, 27.5);
-	std::cout << current_weather << std::endl; 
-		std::this_thread::sleep_for(std::chrono::milliseconds(sporadic));
+	std::this_thread::sleep_for(std::chrono::milliseconds(sporadic));
+	weather_station->measure(70, 85, 27.5);
+	std::this_thread::sleep_for(std::chrono::milliseconds(sporadic));
 	weather_station->measure(80, 95, 29.5);
-	std::cout << current_weather << std::endl;
 
-	std::cout << statistics_weather << std::endl;
-
+	/*Professor Besser's code starts here*/
     //std::random_device rd;
     //std::mt19937 mt{ rd() };
     //std::uniform_int_distribution<int> const dist{ 0, 10000 };

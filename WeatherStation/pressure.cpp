@@ -23,4 +23,11 @@ namespace WeatherStation
         return result;
     }
 
+	//bool Pressure::is_equal(Pressure aPressure) const {
+	//	if (this->get() == aPressure.get())
+	//		return true;
+	//	else
+	//		return false;
+	//}
+
 }

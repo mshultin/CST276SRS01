@@ -1,3 +1,4 @@
+#include <iostream>
 #include <iomanip>
 #include "station.h"
 #include "statistics.h"
@@ -47,10 +48,27 @@ namespace WeatherViewer
     }
 
 	void Statistics::Update() {
-		auto now{ std::chrono::system_clock::now() };
+		auto mNow{ std::chrono::system_clock::now() };
+		bool mUpdate = false;
+		WeatherStation::Temperature::value_type mTemperature = station_->getMeanTemperature(begin_, mNow).get();
+		WeatherStation::Humidity::value_type mHumidity = station_->getMeanHumidity(begin_, mNow).get();
+		WeatherStation::Pressure::value_type mPressure = station_->getMeanPressure(begin_, mNow).get();
 
-		this->humidityMean_.set(station_->getMeanHumidity(begin_, now).get());
-		this->pressureMean_.set(station_->getMeanPressure(begin_, now).get());
-		this->temperatureMean_.set(station_->getMeanTemperature(begin_, now).get());
+		if (mTemperature != temperatureMean_.get())
+			mUpdate = true;
+
+		if (mHumidity != humidityMean_.get())
+			mUpdate = true;
+
+		if (mPressure != pressureMean_.get())
+			mUpdate = true;
+
+		if (mUpdate)
+		{
+			this->temperatureMean_.set(mTemperature);
+			this->humidityMean_.set(mHumidity);
+			this->pressureMean_.set(mPressure);
+			std::cout << "Statistical weather change: " << *this << std::endl;
+		}
 	}
 }

@@ -1,3 +1,4 @@
+#include <iostream>
 #include <iomanip>
 #include "station.h"
 #include "current.h"
@@ -7,7 +8,6 @@ namespace WeatherViewer
 	std::ostream& operator<<(std::ostream& os, WeatherViewer::Current& current)
 	{
 		//auto station{ current.getStation() };
-
 		auto temperature{ current.temperature_ };
 		auto humidity{ current.humidity_ };
 		auto pressure{ current.pressure_ };
@@ -39,8 +39,26 @@ namespace WeatherViewer
     }
 
 	void Current::Update() {
-		this->temperature_.set(station_->getTemperature().get());
-		this->humidity_.set(station_->getHumidity().get());
-		this->pressure_.set(station_->getPressure().get());
+		bool mUpdate = false;
+		WeatherStation::Temperature::value_type mTemperature = station_->getTemperature().get();
+		WeatherStation::Humidity::value_type mHumidity = station_->getHumidity().get();
+		WeatherStation::Pressure::value_type mPressure = station_->getPressure().get();
+
+		if (mTemperature != temperature_.get())
+			mUpdate = true;
+
+		if (mHumidity != humidity_.get())
+			mUpdate = true;
+
+		if (mPressure != pressure_.get())
+			mUpdate = true;
+
+		if (mUpdate)
+		{
+			this->temperature_.set(mTemperature);
+			this->humidity_.set(mHumidity);
+			this->pressure_.set(mPressure);
+			std::cout << "Current weather change: " << *this << std::endl;
+		}
 	}
 }
