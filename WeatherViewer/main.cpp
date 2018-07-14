@@ -19,6 +19,7 @@ int main()
 	std::uniform_int_distribution<int> const dist{ 0, 10000 };
 	auto const sporadic{ dist(mt) };
 	
+	std::cout << "The current wait between readings is " << sporadic << " milliseconds." << std::endl;
 	weather_station->measure(60, 75, 25.5);
 	std::this_thread::sleep_for(std::chrono::milliseconds(sporadic));
 	weather_station->measure(60, 75, 25.5);
