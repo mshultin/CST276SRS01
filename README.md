@@ -36,14 +36,14 @@ Specification:
 
     x- Create a console project named WeatherViewer.  
     x- Implement the WeatherViewer namespace code in the WeatherViewer project.  
-    - Test your WeatherViewer with the WeatherStation.dll and API documentation provided from your previous partner.  
+    Failed- Test your WeatherViewer with the WeatherStation.dll and API documentation provided from your previous partner.  
 
     x- See the main.cpp example for a starting place to create your WeatherViewer.  
     x- Unlike the main.cpp, your WeatherViewer should only report changes to the weather.  
 
-    - As always, write a report for your project in the REPORT.md file.  
+    x- As always, write a report for your project in the REPORT.md file.  
 
-    - Be sure to follow all course guidelines, especially submission of main.cpp, REPORT.md, and README.md files.  
+    x- Be sure to follow all course guidelines, especially submission of main.cpp, REPORT.md, and README.md files.  
 
 
 ###
